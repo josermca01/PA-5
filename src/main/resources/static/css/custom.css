@@ -245,48 +245,12 @@ h1 {
 	text-decoration: none;
 }
 
-.card-subtitle {
-	margin-top: 5px;
-	color: #666;
-	font-weight: lighter;
-	position: relative;
-	z-index: 2;
-}
-
 .card-image {
 	height: 180px;
 	position: relative;
 	z-index: 2;
 }
 
-.tipo{
-	width: 100px;
-}
-
-.tipo input,.tipo label{
-	width: 100%;
-}
-
-.tipo input[type="radio"] {
-  opacity: 0.01;
-  z-index: 100;
-}
-
-.tipo input[type="radio"]:checked+label,
-.Checked+label {
-  border-color: yellow;
-}
-
-.tipo label {
-	padding: 5px;
-	border: 1px solid #CCC;
-	cursor: pointer;
-	z-index: 90;
-}
-
-.tipo label:hover {
-	border-color:blue;
-}
 
 @keyframes bounce {
 	20% {
