@@ -19,7 +19,7 @@ public class PokedexController {
     private PokedexService servico;
 
     @GetMapping("/")
-  public ModelAndView getPokemons(@RequestParam(value = "type0",defaultValue = "") String types0) {
+  public ModelAndView getPokemons(@RequestParam(value = "types0",defaultValue = "") String types0) {
     HttpHeaders header = new HttpHeaders();
     header.add("desc", "List of pokemon by type");
     header.add("type", "pokemon object");
