@@ -13,8 +13,8 @@ public class PokedexService {
     @Autowired
     private PokedexRepository repository;
 
-    public List<Pokemon> getPokemons() {
-        return repository.findAll();
+    public List<Pokemon> getPokemons(String types0) {
+        return repository.find(types0);
     }
 
     public Pokemon getPokemonById(Long id) {

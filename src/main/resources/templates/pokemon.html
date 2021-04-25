@@ -65,12 +65,13 @@
 
 </head>
 <body>
-  
   <div class="container">
-    <h1><td th:text="${pokemon.name}"></td></h1>
-    <button onclick="history.back()">
+    <h1>
+      <button onclick="history.back()">
       <img src="/images/return.png" height="30px" width="35px" alt="Voltar">
-    </button>
+      </button>
+      <td th:text="${pokemon.name}"></td>
+    </h1>
     <ul class="pokedex">
       <li class="cardsolo" th:classappend="${pokemon.types0}" >
         <img class="card-image" th:alt="${pokemon.name}" th:src="@{${'https://pokeres.bastionbot.org/images/pokemon/'+ pokemon.id +'.png'}}"/>
