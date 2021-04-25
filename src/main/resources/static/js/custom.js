@@ -4,14 +4,12 @@ const generatePokemons = () => Array(150).fill().map((_, index) =>
     fetch(getPokemonUrl(index + 1)).then(response => response.json())
 );
 
-const generateHTML = pokemons => pokemons.reduce((acc, { name, id, types }) => {
-    const elementTypes = types.map(typeInfo => typeInfo.type.name)
+const generateHTML = pokemons => pokemons.reduce((acc, { name, id }) => {
 
     acc += `
-        <li class="card ${elementTypes[0]}">
+        <li class="card ">
         <img class="card-image" alt="${name}" src="https://pokeres.bastionbot.org/images/pokemon/${id}.png"/>
         <h2 class="card-title">${id}. <a th:href="@{'/pokemon/' + ${id}}">${name}</a></h2>
-        <p class="card-subtitle">${elementTypes.join(' | ')}</p>
         </li>`
 
     return acc

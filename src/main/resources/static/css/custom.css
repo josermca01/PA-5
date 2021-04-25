@@ -33,6 +33,20 @@ h1 {
 	position: relative;
 }
 
+.cardtype {
+	list-style: none;
+	margin-left: 33%;
+	padding: 4px;
+	width: 100px;
+	color: #222;
+	text-align: center;
+	border-radius: 20px;
+	position: relative;
+	-webkit-text-stroke-width: 0.7px;
+	-webkit-text-stroke-color: rgb(49, 49, 49);
+	font-size: 22px; color: #fffdd9;
+}
+
 .card::after {
 	content: "";
   display: block;
@@ -45,64 +59,136 @@ h1 {
   left: 25%;
 }
 
-.steel {
+.Ghost {
 	background-color: #f4f4f4;
 }
 
-.fire {
+.Steel {
+	background-color: #f4f4f4;
+}
+
+.Fire {
 	background-color: #FDDFDF;
 }
 
-.grass {
+.Grass {
 	background-color: #DEFDE0;
 }
 
-.electric {
+.Electric {
 	background-color: #FCF7DE;
 }
 
-.water, .ice {
+.Water, .Ice {
 	background-color: #DEF3FD;
 }
 
-.ground {
+.Ground {
 	background-color: #f4e7da;
 }
 
-.rock {
+.Rock {
 	background-color: #d5d5d4;
 }
 
-.fairy {
+.Fairy {
 	background-color: #fceaff;
 }
 
-.poison {
+.Poison {
 	background-color: #98d7a5;
 }
 
-.bug {
+.Bug {
 	background-color: #f8d5a3;
 }
 
-.dragon {
+.Dragon {
 	background-color: #97b3e6;
 }
 
-.psychic {
+.Psychic {
 	background-color: #eaeda1;
 }
 
-.flying {
+.Flying {
 	background-color: #F5F5F5;
 }
 
-.fighting {
+.Fighting {
 	background-color: #E6E0D4;
 }
 
-.normal {
+.Normal {
 	background-color: #F5F5F5;
+}
+
+.Ghost2 {
+	background-color: rgb(126, 126, 193);
+}
+
+.Steel2 {
+	background-color: rgb(147, 147, 165);
+}
+
+.Fire2 {
+	background-color: rgb(243, 76, 24);
+}
+
+.Grass2 {
+	background-color: rgb(121, 198, 58);
+}
+
+.Electric2 {
+	background-color: rgb(252, 187, 23);
+}
+
+.Water2{
+	background-color: rgb(82, 168, 255);
+}
+
+.Ice2{
+	background-color: rgb(175, 235, 255);
+}
+
+.Ground2 {
+	background-color: rgb(216, 184, 98);
+}
+
+.Rock2 {
+	background-color: rgb(188, 163, 88);
+}
+
+.Fairy2 {
+	background-color: rgb(223, 141, 223);
+}
+
+.Poison2 {
+	background-color: rgb(154, 80, 155);
+}
+
+.Bug2 {
+	background-color: rgb(136, 150, 14);
+}
+
+.Dragon2 {
+	background-color: rgb(119, 94, 225);
+}
+
+.Psychic2 {
+	background-color: rgb(237, 72, 131);
+}
+
+.Flying2 {
+	background-color: rgb(157, 174, 247);
+}
+
+.Fighting2 {
+	background-color: rgb(123, 49, 27);
+}
+
+.Normal2 {
+	background-color: rgb(173, 165, 148);
 }
 
 .card:hover {
@@ -116,6 +202,11 @@ h1 {
 	font-weight: normal;
 	position: relative;
 	z-index: 2;
+}
+
+.text{
+	color: #222;
+	text-decoration: none;
 }
 
 .card-subtitle {
