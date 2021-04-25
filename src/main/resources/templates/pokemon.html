@@ -2,16 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <style>
+        button{
+          background: local;
+          border: 0;
+        }
+        
         table {
           width: 100%;
+          border: 1px solid #222;
+          border-radius: 25px;
+          background-color: #f2f2f2;
         }
         
         th, td {
+
+          border-radius: 25px;
+          background-color: #f2f2f2;
           text-align: left;
           padding: 8px;
         }
         
-        tr{background-color: #f2f2f2}
+        tr{
+          background-color: #f2f2f2;
+        }
         
         th {
           color: white;
@@ -55,6 +68,9 @@
   
   <div class="container">
     <h1><td th:text="${pokemon.name}"></td></h1>
+    <button onclick="history.back()">
+      <img src="/images/return.png" height="30px" width="35px" alt="Voltar">
+    </button>
     <ul class="pokedex">
       <li class="cardsolo" th:classappend="${pokemon.types0}" >
         <img class="card-image" th:alt="${pokemon.name}" th:src="@{${'https://pokeres.bastionbot.org/images/pokemon/'+ pokemon.id +'.png'}}"/>
@@ -64,12 +80,13 @@
       </li>
       <li class="status">
               <table>
-                  <tr><td th:text="HP"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.hp}"></progress></th><td th:text="${pokemon.hp}"></td></tr>
-                  <tr><td th:text="ATTACK"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.attack}"></progress></th><td th:text="${pokemon.attack}"></td></tr>
-                  <tr><td th:text="DEFENSE"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.defense}"></progress></th><td th:text="${pokemon.defense}"></td></tr>
-                  <tr><td th:text="SPATK"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.spatk}"></progress></th><td th:text="${pokemon.spatk}"></td></tr>
-                  <tr><td th:text="SPDEF"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.spdef}"></progress></th><td th:text="${pokemon.spdef}"></td></tr>
-                  <tr><td th:text="SPEED"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.speed}"></progress></th><td th:text="${pokemon.speed}"></td></tr>
+                  <tr><td th:text="HP"></td><th><progress th:max="275" th:value="${pokemon.hp}"></progress></th><td th:text="${pokemon.hp}"></td></tr>
+                  <tr><td th:text="ATTACK"></td><th><progress th:max="275" th:value="${pokemon.attack}"></progress></th><td th:text="${pokemon.attack}"></td></tr>
+                  <tr><td th:text="DEFENSE"></td><th><progress th:max="275" th:value="${pokemon.defense}"></progress></th><td th:text="${pokemon.defense}"></td></tr>
+                  <tr><td th:text="SPATK"></td><th><progress th:max="275" th:value="${pokemon.spatk}"></progress></th><td th:text="${pokemon.spatk}"></td></tr>
+                  <tr><td th:text="SPDEF"></td><th><progress th:max="275" th:value="${pokemon.spdef}"></progress></th><td th:text="${pokemon.spdef}"></td></tr>
+                  <tr><td th:text="SPEED"></td><th><progress th:max="275" th:value="${pokemon.speed}"></progress></th><td th:text="${pokemon.speed}"></td></tr>
+                  <tr><td th:text="TOTAL"></td><th></th><td th:text="${pokemon.total}"></td></tr>
               </table>
         </li>
     </ul>
