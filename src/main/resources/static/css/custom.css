@@ -44,7 +44,7 @@ h1 {
 	position: relative;
 	-webkit-text-stroke-width: 0.7px;
 	-webkit-text-stroke-color: rgb(49, 49, 49);
-	font-size: 22px; color: #fffdd9;
+	font: 30px 'sigmar one'; color: #fffdd9;
 }
 
 .card::after {
