@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        table {
+          width: 100%;
+        }
+        
+        th, td {
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr{background-color: #f2f2f2}
+        
+        th {
+          color: white;
+        }
+        /* For Chrome or Safari */
+        progress::-webkit-progress-bar {
+            background-color: #eeeeee;
+        }
+  
+        progress::-webkit-progress-value {
+            background-color: #039603 !important;
+        }
+  
+  
+        /* For Firefox */
+        progress {
+            background-color: #eee;
+        }
+  
+        progress::-moz-progress-bar {
+            background-color: #039603 !important;
+        }
+  
+        /* For IE10 */
+        progress {
+            background-color: #eee;
+        }
+  
+        progress {
+            background-color: #039603;
+        }
+        </style>
+<meta charset="UTF-8">
+<title>Pokedex PA</title>
+<link rel="icon" href="/images/pokeball.png">
+<link rel="stylesheet" type="text/css" href="/css/custom.css"/>
+<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+  
+  <div class="container">
+    <h1><td th:text="${pokemon.name}"></td></h1>
+    <ul class="pokedex">
+      <li class="cardsolo" th:classappend="${pokemon.types0}" >
+        <img class="card-image" th:alt="${pokemon.name}" th:src="@{${'https://pokeres.bastionbot.org/images/pokemon/'+ pokemon.id +'.png'}}"/>
+        <h2 class="card-title"><td th:text="${pokemon.id}"></td>. <td th:text="${pokemon.name}"></td></h2>
+        <p class="cardtype" th:classappend="${pokemon.types0}+2"><td th:text="${pokemon.types0}"></td></p>
+        <p class="cardtype" th:classappend="${pokemon.types1}+2"><td th:text=" ${pokemon.types1}"></td></p>
+      </li>
+      <li class="status">
+              <table>
+                  <tr><td th:text="HP"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.hp}"></progress></th><td th:text="${pokemon.hp}"></td></tr>
+                  <tr><td th:text="ATTACK"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.attack}"></progress></th><td th:text="${pokemon.attack}"></td></tr>
+                  <tr><td th:text="DEFENSE"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.defense}"></progress></th><td th:text="${pokemon.defense}"></td></tr>
+                  <tr><td th:text="SPATK"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.spatk}"></progress></th><td th:text="${pokemon.spatk}"></td></tr>
+                  <tr><td th:text="SPDEF"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.spdef}"></progress></th><td th:text="${pokemon.spdef}"></td></tr>
+                  <tr><td th:text="SPEED"></td><th><progress th:max="${pokemon.total}" th:value="${pokemon.speed}"></progress></th><td th:text="${pokemon.speed}"></td></tr>
+              </table>
+        </li>
+    </ul>
+  </div>
+</body>
+</html>
