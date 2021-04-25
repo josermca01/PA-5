@@ -85,7 +85,8 @@ h1 {
 	position: relative;
 	-webkit-text-stroke-width: thin;
 	-webkit-text-stroke-color: rgb(49, 49, 49);
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	text-shadow: 0 0 2px black;
 	font-size: larger;
 	color: #ffffff;
 }
