@@ -1,6 +1,7 @@
 package com.example.pokedex.controller;
 
 import com.example.pokedex.entity.Pokemon;
+import com.example.pokedex.service.MovessetService;
 import com.example.pokedex.service.PokedexService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class PokedexController {
     @Autowired
     private PokedexService servico;
 
+    @Autowired
+    private MovessetService servicomoves;
+
     @GetMapping("/")
   public ModelAndView getPokemons(@RequestParam(value = "types0",defaultValue = "") String types0) {
     HttpHeaders header = new HttpHeaders();
@@ -28,12 +32,12 @@ public class PokedexController {
         return ResponseEntity.status(HttpStatus.OK).headers(header).body(mv).getBody();
   }
     @GetMapping("/pokemon/{id}")
-  public ModelAndView getPokemon(@PathVariable(name = "id") Long id) {
+  public ModelAndView getPokemon( @PathVariable(name = "id") Long id ) {
       
       Pokemon pokemon = servico.getPokemonById(id);
       ModelAndView mv = new ModelAndView("pokemon");
       mv.addObject("pokemon", pokemon);
-
+      mv.addObject("moves", servicomoves.getMovesById(id));
       return mv;
   }
 }

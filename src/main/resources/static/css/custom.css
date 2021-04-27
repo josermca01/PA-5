@@ -14,6 +14,11 @@ progress{
 	border-radius: 20px;
 }
 
+button:hover{
+	cursor: pointer;
+	animation: bounce 0.5s linear;
+}
+
 .container {
 	padding: 40px;
 	margin: 0 auto;
@@ -36,7 +41,7 @@ h1 {
 	padding: 40px;
 	color: #222;
 	text-align: center;
-    border: 0;
+    border: solid 4px white;
 	border-radius: 20px;
 	position: relative;
 }
@@ -48,7 +53,7 @@ h1 {
 	left: 15rem;
 	color: #222;
 	text-align: center;
-    border: 0;
+    border: solid 4px white;
 	border-radius: 20px;
 	position: relative;
 }
@@ -86,14 +91,18 @@ h1 {
 	-webkit-text-stroke-width: thin;
 	-webkit-text-stroke-color: rgb(49, 49, 49);
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-	text-shadow: 0 0 2px black;
+	text-shadow: 0 0 5px black;
 	font-size: larger;
 	color: #ffffff;
 }
 
 
 .Ghost {
-	background-color: #f4f4f4;
+	background-color: #cbb0dd;
+}
+
+.Dark {
+	background-color: #a0a0a0;
 }
 
 .Steel {
@@ -158,6 +167,10 @@ h1 {
 
 .Ghost2 {
 	background-color: rgb(126, 126, 193);
+}
+
+.Dark2 {
+	background-color: rgb(54, 54, 54);
 }
 
 .Steel2 {
@@ -244,6 +257,7 @@ h1 {
 .text{
 	color: #222;
 	text-decoration: none;
+	font-weight: bolder;
 }
 
 .card-image {

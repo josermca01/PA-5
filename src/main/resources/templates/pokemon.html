@@ -9,7 +9,7 @@
         
         table {
           width: 100%;
-          border: 1px solid #222;
+          border: 4px solid white;
           border-radius: 25px;
           background-color: #f2f2f2;
         }
@@ -20,14 +20,16 @@
           background-color: #f2f2f2;
           text-align: left;
           padding: 8px;
+          width: min-content;
         }
         
         tr{
           background-color: #f2f2f2;
         }
         
-        th {
-          color: white;
+        tr th{
+          color: inherit;
+          background-color: inherit;
         }
         /* For Chrome or Safari */
         progress::-webkit-progress-bar {
@@ -80,17 +82,38 @@
         <p class="cardtype" th:classappend="${pokemon.types1}+2"><td th:text=" ${pokemon.types1}"></td></p>
       </li>
       <li class="status">
-              <table>
-                  <tr><td th:text="HP"></td><th><progress th:max="275" th:value="${pokemon.hp}"></progress></th><td th:text="${pokemon.hp}"></td></tr>
-                  <tr><td th:text="ATTACK"></td><th><progress th:max="275" th:value="${pokemon.attack}"></progress></th><td th:text="${pokemon.attack}"></td></tr>
-                  <tr><td th:text="DEFENSE"></td><th><progress th:max="275" th:value="${pokemon.defense}"></progress></th><td th:text="${pokemon.defense}"></td></tr>
-                  <tr><td th:text="SPATK"></td><th><progress th:max="275" th:value="${pokemon.spatk}"></progress></th><td th:text="${pokemon.spatk}"></td></tr>
-                  <tr><td th:text="SPDEF"></td><th><progress th:max="275" th:value="${pokemon.spdef}"></progress></th><td th:text="${pokemon.spdef}"></td></tr>
-                  <tr><td th:text="SPEED"></td><th><progress th:max="275" th:value="${pokemon.speed}"></progress></th><td th:text="${pokemon.speed}"></td></tr>
-                  <tr><td th:text="TOTAL"></td><th></th><td th:text="${pokemon.total}"></td></tr>
+              <table th:class="${pokemon.types0}">
+                  <tr ><td th:text="HP" th:class="${pokemon.types0}"></td><th th:class="${pokemon.types0}"><progress th:max="250" th:value="${pokemon.hp}"></progress></th><td th:text="${pokemon.hp}" th:class="${pokemon.types0}"></td></tr>
+                  <tr><td th:text="ATTACK" th:class="${pokemon.types0}"></td><th th:class="${pokemon.types0}"><progress th:max="250" th:value="${pokemon.attack}"></progress></th><td th:text="${pokemon.attack}" th:class="${pokemon.types0}"></td></tr>
+                  <tr><td th:text="DEFENSE"th:class="${pokemon.types0}"></td><th th:class="${pokemon.types0}"><progress th:max="250" th:value="${pokemon.defense}"></progress></th><td th:text="${pokemon.defense}" th:class="${pokemon.types0}"></td></tr>
+                  <tr><td th:text="SPATK" th:class="${pokemon.types0}"></td><th th:class="${pokemon.types0}"><progress th:max="250" th:value="${pokemon.spatk}"></progress></th><td th:text="${pokemon.spatk}" th:class="${pokemon.types0}"></td></tr>
+                  <tr><td th:text="SPDEF"th:class="${pokemon.types0}"></td><th th:class="${pokemon.types0}"><progress th:max="250" th:value="${pokemon.spdef}"></progress></th><td th:text="${pokemon.spdef}" th:class="${pokemon.types0}"></td></tr>
+                  <tr><td th:text="SPEED"th:class="${pokemon.types0}"></td><th th:class="${pokemon.types0}"><progress th:max="250" th:value="${pokemon.speed}"></progress></th><td th:text="${pokemon.speed}" th:class="${pokemon.types0}"></td></tr>
+                  <tr><td th:text="TOTAL"th:class="${pokemon.types0}"></td><th th:class="${pokemon.types0}"></th><td th:text="${pokemon.total}" th:class="${pokemon.types0}"></td></tr>
               </table>
         </li>
     </ul>
+      <h1>Moves by Level</h1>
+      <li style="list-style : none ">
+        <table th:class="${pokemon.types0}">
+          <thead>
+            <tr  th:class="${pokemon.types0}">
+              <th>Lv</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Category</th>
+              <th>Power</th>
+              <th>Acc.</th>
+              <th>PP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="move : ${moves}" >
+              <td th:class="${pokemon.types0}" th:text="${move.Level}"></td><td th:class="${pokemon.types0}" th:text="${move.Move}"></td><td class="cardtype" th:classappend="${move.Type}+2" th:text="${move.Type}"></td><td th:class="${pokemon.types0}" th:text="${move.Cat}"></td><td th:class="${pokemon.types0}" th:text="${move.Pwr}"></td><td th:class="${pokemon.types0}" th:text="${move.Acc}"></td><td th:class="${pokemon.types0}" th:text="${move.PP}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
   </div>
 </body>
 </html>

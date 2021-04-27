@@ -25,7 +25,7 @@
         <button class="cardtype Grass2" type="submit" id="grass" value="grass" name="types0" style="margin: 15px;">Grass</button>
         <button class="cardtype Normal2" type="submit" id="normal" value="normal" name="types0" style="margin: 15px;">Normal</button>
         <button class="cardtype Rock2" type="submit" id="rock" value="rock" name="types0" style="margin: 15px;">Rock</button>
-        <button class="cardtype Dragon2" type="submit" id="dark" value="dark" name="types0" style="margin: 15px;">Dark</button>
+        <button class="cardtype Dark2" type="submit" id="dark" value="dark" name="types0" style="margin: 15px;">Dark</button>
         <button class="cardtype Fairy2" type="submit" id="fairy" value="fairy" name="types0" style="margin: 15px;">Fairy</button>
         <button class="cardtype Flying2" type="submit" id="flying" value="flying" name="types0" style="margin: 15px;">Flying</button>
       </div>
@@ -51,14 +51,14 @@
 
 
     <ul class="pokedex">
-      <li th:each="pokemon : ${pokemons}" class="card" th:classappend="${pokemon.types0}" >
-        <a th:href="@{'/pokemon/'+ ${pokemon.id}}" class="text">
-          <img class="card-image" th:alt="${pokemon.name}" th:src="@{${'https://pokeres.bastionbot.org/images/pokemon/'+ pokemon.id +'.png'}}"/>
-          <h2 class="card-title"><td th:text="${pokemon.id}"></td>.<td th:text="${pokemon.name}"></td></h2>
-          <p class="cardtype" th:classappend="${pokemon.types0}+2"><td th:text="${pokemon.types0}"></td></p>
-          <p class="cardtype" th:classappend="${pokemon.types1}+2"><td th:text=" ${pokemon.types1}"></td></p>
-        </a>
-      </li>
+        <a th:href="@{'/pokemon/'+ ${pokemon.id}}" th:each="pokemon : ${pokemons}" class="card text" th:classappend="${pokemon.types0}" >
+          <li>
+            <img class="card-image" th:alt="${pokemon.name}" th:src="@{${'https://pokeres.bastionbot.org/images/pokemon/'+ pokemon.id +'.png'}}"/>
+            <h2 class="card-title"><td th:text="${pokemon.id}"></td>.<td th:text="${pokemon.name}"></td></h2>
+            <p class="cardtype" th:classappend="${pokemon.types0}+2"><td th:text="${pokemon.types0}"></td></p>
+            <p class="cardtype" th:classappend="${pokemon.types1}+2"><td th:text=" ${pokemon.types1}"></td></p>
+          </li>
+          </a>
     </ul>
   </div>
 </body>
