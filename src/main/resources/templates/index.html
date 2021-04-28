@@ -9,47 +9,38 @@
 
 </head>
 <body>
-  
   <div class="container">
     <h1>Pokedex</h1>
-        
-
-
-
-
     <form action="" method="get" style="display: flex; flex-direction: column;">
       <div style="width: 100%; display: flex; flex-direction: row;">
-        <button class="cardtype Bug2" type="submit" id="bug" value="bug" name="types0" style="margin: 15px;">Bug</button>
-        <button class="cardtype Electric2" type="submit" id="electric" value="electric" name="types0" style="margin: 15px;">Electric</button>
-        <button class="cardtype Fire2" type="submit" id="fire" value="fire" name="types0" style="margin: 15px;">Fire</button>
-        <button class="cardtype Grass2" type="submit" id="grass" value="grass" name="types0" style="margin: 15px;">Grass</button>
-        <button class="cardtype Normal2" type="submit" id="normal" value="normal" name="types0" style="margin: 15px;">Normal</button>
-        <button class="cardtype Rock2" type="submit" id="rock" value="rock" name="types0" style="margin: 15px;">Rock</button>
-        <button class="cardtype Dark2" type="submit" id="dark" value="dark" name="types0" style="margin: 15px;">Dark</button>
-        <button class="cardtype Fairy2" type="submit" id="fairy" value="fairy" name="types0" style="margin: 15px;">Fairy</button>
-        <button class="cardtype Flying2" type="submit" id="flying" value="flying" name="types0" style="margin: 15px;">Flying</button>
+        <button class="cardtype Bug2" type="submit" id="Bug" value="Bug" name="types0" style="margin: 15px;">Bug</button>
+        <button class="cardtype Electric2" type="submit" id="Electric" value="Electric" name="types0" style="margin: 15px;">Electric</button>
+        <button class="cardtype Fire2" type="submit" id="Fire" value="Fire" name="types0" style="margin: 15px;">Fire</button>
+        <button class="cardtype Grass2" type="submit" id="Grass" value="Grass" name="types0" style="margin: 15px;">Grass</button>
+        <button class="cardtype Normal2" type="submit" id="Normal" value="Normal" name="types0" style="margin: 15px;">Normal</button>
+        <button class="cardtype Rock2" type="submit" id="Rock" value="Rock" name="types0" style="margin: 15px;">Rock</button>
+        <button class="cardtype Dark2" type="submit" id="Dark" value="Dark" name="types0" style="margin: 15px;">Dark</button>
+        <button class="cardtype Fairy2" type="submit" id="Fairy" value="Fairy" name="types0" style="margin: 15px;">Fairy</button>
+        <button class="cardtype Flying2" type="submit" id="Flying" value="Flying" name="types0" style="margin: 15px;">Flying</button>
       </div>
-      
       <div style="width: 100%; display: flex; flex-direction: row;">
-        <button class="cardtype Ground2" type="submit" id="ground" value="ground" name="types0" style="margin: 15px;">Ground</button>
-        <button class="cardtype Poison2" type="submit" id="poison" value="poison" name="types0" style="margin: 15px;">Poison</button>
-        <button class="cardtype Steel2" type="submit" id="steel" value="steel" name="types0" style="margin: 15px;">Steel</button>
-        <button class="cardtype Dragon2" type="submit" id="dragon" value="dragon" name="types0" style="margin: 15px;">Dragon</button>
-        <button class="cardtype Fighting2" type="submit" id="fighting" value="fighting" name="types0" style="margin: 15px;">Fighting</button>
-        <button class="cardtype Ghost2" type="submit" id="ghost" value="ghost" name="types0" style="margin: 15px;">Ghost</button>
-        <button class="cardtype Ice2" type="submit" id="ice" value="ice" name="types0" style="margin: 15px;">Ice</button>
-        <button class="cardtype Psychic2" type="submit" id="psychic" value="psychic" name="types0" style="margin: 15px;">Psychic</button>
-        <button class="cardtype Water2" type="submit" id="water" value="water" name="types0" style="margin: 15px;">Water</button>
-        <button class="cardtype " type="submit" id="" value="" name="types0" style="margin: 15px;">Clear</button>
+        <button class="cardtype Ground2" type="submit" id="Ground" value="Ground" name="types0" style="margin: 15px;">Ground</button>
+        <button class="cardtype Poison2" type="submit" id="Poison" value="Poison" name="types0" style="margin: 15px;">Poison</button>
+        <button class="cardtype Steel2" type="submit" id="Steel" value="Steel" name="types0" style="margin: 15px;">Steel</button>
+        <button class="cardtype Dragon2" type="submit" id="Dragon" value="Dragon" name="types0" style="margin: 15px;">Dragon</button>
+        <button class="cardtype Fighting2" type="submit" id="Fighting" value="Fighting" name="types0" style="margin: 15px;">Fighting</button>
+        <button class="cardtype Ghost2" type="submit" id="Ghost" value="Ghost" name="types0" style="margin: 15px;">Ghost</button>
+        <button class="cardtype Ice2" type="submit" id="Ice" value="Ice" name="types0" style="margin: 15px;">Ice</button>
+        <button class="cardtype Psychic2" type="submit" id="Psychic" value="Psychic" name="types0" style="margin: 15px;">Psychic</button>
+        <button class="cardtype Water2" type="submit" id="Water" value="Water" name="types0" style="margin: 15px;">Water</button>
       </div>
-      
-
     </form>
-
-
-
-
-
+    <form action="" method="get">  
+      <div>
+        <input class="cardtype "  type="text" name="types0" id="types0">
+        <input class="cardtype "  type="submit" value="Submit">
+      </div> 
+    </form>
     <ul class="pokedex">
         <a th:href="@{'/pokemon/'+ ${pokemon.id}}" th:each="pokemon : ${pokemons}" class="card text" th:classappend="${pokemon.types0}" >
           <li>

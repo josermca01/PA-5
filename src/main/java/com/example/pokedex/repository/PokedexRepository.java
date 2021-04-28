@@ -11,9 +11,9 @@ public interface PokedexRepository  extends JpaRepository <Pokemon, Long>{
     @Query("SELECT p FROM Pokemon p " + 
            "WHERE " +
            "(LOWER(p.types0)     LIKE   LOWER(CONCAT('%', :types0, '%')))  OR  "+
-           "(LOWER(p.types1)     LIKE   LOWER(CONCAT('%', :types0, '%')))"
+           "(LOWER(p.types1)     LIKE   LOWER(CONCAT('%', :types0, '%'))) OR "+
+           "(LOWER(p.name)     LIKE   LOWER(CONCAT('%', :types0, '%')))"
     )
-
 
     public List<Pokemon> find(String types0);
 }

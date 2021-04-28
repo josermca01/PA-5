@@ -109,7 +109,13 @@
           </thead>
           <tbody>
             <tr th:each="move : ${moves}" >
-              <td th:class="${pokemon.types0}" th:text="${move.Level}"></td><td th:class="${pokemon.types0}" th:text="${move.Move}"></td><td class="cardtype" th:classappend="${move.Type}+2" th:text="${move.Type}"></td><td th:class="${pokemon.types0}" th:text="${move.Cat}"></td><td th:class="${pokemon.types0}" th:text="${move.Pwr}"></td><td th:class="${pokemon.types0}" th:text="${move.Acc}"></td><td th:class="${pokemon.types0}" th:text="${move.PP}"></td>
+              <td th:class="${pokemon.types0}" th:text="${move.Level}"></td>
+              <td th:class="${pokemon.types0}" th:text="${move.Move}"></td>
+              <td class="cardtype" th:classappend="${move.Type}+2" th:text="${move.Type}"></td>
+              <td th:class="${pokemon.types0}" th:text="${move.Cat}"></td>
+              <td th:class="${pokemon.types0}" th:text="${move.Pwr}"></td>
+              <td th:class="${pokemon.types0}" th:text="${move.Acc}"></td>
+              <td th:class="${pokemon.types0}" th:text="${move.PP}"></td>
             </tr>
           </tbody>
         </table>
