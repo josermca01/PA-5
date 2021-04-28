@@ -20,9 +20,9 @@ public class PokedexController {
     private MovessetService servicomoves;
 
     @GetMapping("/")
-  public ModelAndView getPokemons(@RequestParam(value = "types0",defaultValue = "") String types0) {
+  public ModelAndView getPokemons(@RequestParam(value = "types0",defaultValue = "") String types0,@RequestParam(value = "name",defaultValue = "") String name) {
 	  ModelAndView mv = new ModelAndView("index");
-        mv.addObject("pokemons", servico.getPokemons(types0.trim()));
+        mv.addObject("pokemons", servico.getPokemons(types0.trim(),name.trim()));
         return mv;
   }
     @GetMapping("/pokemon/{id}")

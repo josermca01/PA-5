@@ -36,6 +36,37 @@ public class Pokemon implements Serializable{
     
     private int speed;
 
+    private String ability0;
+
+    private String ability1;
+
+    private String hidden;
+    
+
+    public String getAbility0() {
+        return ability0;
+    }
+
+    public void setAbility0(String ability0) {
+        this.ability0 = ability0;
+    }
+
+    public String getAbility1() {
+        return ability1;
+    }
+
+    public void setAbility1(String ability1) {
+        this.ability1 = ability1;
+    }
+
+    public String getHidden() {
+        return hidden;
+    }
+
+    public void setHidden(String hidden) {
+        this.hidden = hidden;
+    }
+
     public String getTypes0() {
         return types0;
     }

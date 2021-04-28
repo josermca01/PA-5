@@ -80,6 +80,10 @@
         <h2 class="card-title"><td th:text="${pokemon.id}"></td>. <td th:text="${pokemon.name}"></td></h2>
         <p class="cardtype" th:classappend="${pokemon.types0}+2"><td th:text="${pokemon.types0}"></td></p>
         <p class="cardtype" th:classappend="${pokemon.types1}+2"><td th:text=" ${pokemon.types1}"></td></p>
+        <p class="card-title">Abilities : </p>
+        <p class="card-title"><td th:text=" ${pokemon.ability0}"></td></p>
+        <p class="card-title"><td th:text=" ${pokemon.ability1}"></td></p>
+        <p class="card-title"><td th:text=" ${pokemon.hidden}"></td></p>
       </li>
       <li class="status">
               <table th:class="${pokemon.types0}">
