@@ -68,7 +68,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>
+    <h1 style="text-transform: capitalize">
       <button onclick="history.back()">
       <img src="/images/return.png" height="30px" width="35px" alt="Voltar">
       </button>
@@ -76,8 +76,8 @@
     </h1>
     <ul class="pokedex">
       <li class="cardsolo" th:classappend="${pokemon.types0}" >
-        <img class="card-image" th:alt="${pokemon.name}" th:src="@{${'https://pokeres.bastionbot.org/images/pokemon/'+ pokemon.id +'.png'}}"/>
-        <h2 class="card-title"><td th:text="${pokemon.id}"></td> <td th:text="${pokemon.name}"></td></h2>
+        <img class="card-image" th:alt="${pokemon.name}" th:src="@{${pokemon.imagem}}"/>
+        <h2 class="card-title"><td th:text="${pokemon.id}+${id}"></td> <td th:text="${pokemon.name}"></td></h2>
         <p class="cardtype" th:classappend="${pokemon.types0}+2"><td th:text="${pokemon.types0}"></td></p>
         <p class="cardtype" th:classappend="${pokemon.types1}+2"><td th:text="${pokemon.types1}"></td></p>
         <p class="card-title">Abilities : </p>
@@ -95,10 +95,10 @@
                   <tr th:class="${pokemon.types0}"><td th:text="SPEED"th:class="${pokemon.types0}"></td><th th:class="${pokemon.types0}"><progress th:max="250" th:value="${pokemon.speed}"></progress></th><td th:text="${pokemon.speed}" th:class="${pokemon.types0}"></td></tr>
                   <tr th:class="${pokemon.types0}"><td th:text="TOTAL"th:class="${pokemon.types0}"></td><th th:class="${pokemon.types0}"></th><td th:text="${pokemon.total}" th:class="${pokemon.types0}"></td></tr>
               </table>
-        </li>
+      </li>
     </ul>
-      <h1>Moves by Level</h1>
-      <li style="list-style : none ">
+    <li th:each = "movesset : ${pokemon.movesset2s}" style="list-style : none ">
+      <h1 th:text="${movesset.name}"></h1>
         <table th:class="${pokemon.types0}">
           <thead>
             <tr  th:class="${pokemon.types0}">
@@ -106,24 +106,37 @@
               <th>Name</th>
               <th>Type</th>
               <th>Category</th>
+              <th>Contest</th>
               <th>Power</th>
               <th>Acc.</th>
               <th>PP</th>
             </tr>
           </thead>
           <tbody>
-            <tr th:each="move : ${moves}" th:class="${pokemon.types0}" >
-              <td th:class="${pokemon.types0}" th:text="${move.Level}"></td>
-              <td th:class="${pokemon.types0}" th:text="${move.Move}"></td>
+            <tr th:each="move : ${movesset.moves}" th:class="${pokemon.types0}">
+              <td th:class="${pokemon.types0}" th:text="${move.level}"></td>
+              <td th:class="${pokemon.types0}" th:text="${move.Name}"></td>
               <td class="cardtype" th:classappend="${move.Type}+2" th:text="${move.Type}"></td>
-              <td th:class="${pokemon.types0}" th:text="${move.Cat}"></td>
-              <td th:class="${pokemon.types0}" th:text="${move.Pwr}"></td>
-              <td th:class="${pokemon.types0}" th:text="${move.Acc}"></td>
+              <td th:class="${pokemon.types0}" th:text="${move.Category}"></td>
+              <td th:class="${pokemon.types0}" th:text="${move.Contest}"></td>
+              <td th:class="${pokemon.types0}" th:text="${move.Power}"></td>
+              <td th:class="${pokemon.types0}" th:text="${move.Accuracy}"></td>
               <td th:class="${pokemon.types0}" th:text="${move.PP}"></td>
             </tr>
           </tbody>
         </table>
-      </li>
+        <form th:action="@{/saveMove(idmovesset=${movesset.id} , pokemonid=${pokemon.id})}" th:object="${moves}" method="POST">
+        <input type="number" placeholder="Digite o level que aprende o move" th:value="${movesset.moves[movesset.moves.size()-1].level}" name="level" required/>
+        <select name="id" required>
+          <option value="">Escolha um move</option>
+          <option th:each="move : ${moves}"
+                  th:value="${move.id}"
+                  th:text="${move.name}">
+          </option>
+        </select>
+        <input type="submit" value="Associar move" />
+        </form>
+    </li>
   </div>
 </body>
 </html>

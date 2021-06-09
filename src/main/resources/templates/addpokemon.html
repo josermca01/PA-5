@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        button{
+          background: local;
+          border: 0;
+        }</style>
+    <meta charset="UTF-8">
+    <title>Pokedex PA</title>
+    <link rel="icon" href="/images/pokeball.png">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/form.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/buttons.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+    <h1>
+        <button onclick="history.back()">
+            <img src="/images/return.png" height="30px" width="35px" alt="Voltar">
+        </button>Pokedex
+    </h1>
+
+    <form th:action="@{/savePokemon}" th:object="${pokemon}" method="POST"style="display: flex; flex-direction: column;">
+        <div class="input-block">
+            <label>Nome:</label>
+            <input class="input-block" type="text" placeholder="Digite o nome" th:value="${pokemon.name}" name="name" required/>
+        </div>
+        <div class="input-block">
+            <label>Link da imagem:</label>
+            <input type="text" placeholder="Digite o link da imagem do pokemon" th:value="${pokemon.name}" name="imagem" required>
+            </div><div class="input-block">
+            <label>Valor do HP do Pokemon:</label>
+            <input type="number" placeholder="Digite o hp" th:value="${pokemon.hp}" name="hp" required min="1" max="250">
+            </div><div class="input-block">
+            <label>Valor do Attack do Pokemon:</label>
+            <input type="number" placeholder="Digite o attack" th:value="${pokemon.attack}" name="attack" required min="1" max="250">
+            </div><div class="input-block">
+            <label>Valor do Defense do Pokemon:</label>
+            <input type="number" placeholder="Digite a defense " th:value="${pokemon.defense}" name="defense" required min="1" max="250">
+            </div><div class="input-block">
+            <label>Valor do Spatk do Pokemon:</label>
+            <input type="number" placeholder="Digite o spatk" th:value="${pokemon.spatk}" name="spatk" required min="1" max="250">
+            </div><div class="input-block">
+            <label>Valor do Spdef do Pokemon:</label>
+            <input type="number" placeholder="Digite o spdef" th:value="${pokemon.spdef}" name="spdef" required min="1" max="250">
+            </div>
+            <div class="input-block"> 
+            <label>Valor do Speed do Pokemon:</label>
+            <input type="number" placeholder="Digite o speed" th:value="${pokemon.speed}" name="speed" required min="1" max="250">
+            </div>
+        <div class="input-block">
+            <label>Tipo 1 do Pokemon:</label>
+            <select class="input-block" th:field="${pokemon.types0}" required>
+                <option value="">Escolha um tipo</option>
+                <option th:each="tipo : ${tipos}"
+                            th:value="${tipo.name}"
+                            th:text="${tipo.name}">
+                </option>
+            </select></div>
+        <div class="input-block">
+            <label>Tipo 2 do Pokemon:</label>
+            <select class="input-block" th:field="${pokemon.types1}">
+                <option value="">Segundo Tipo Opcional</option>
+                <option th:each="tipo : ${tipos}"
+                            th:value="${tipo.name}"
+                            th:text="${tipo.name}">
+                </option></div> 
+        </select>
+        <div class="input-block"> 
+            <label>Abilidade 1 do Pokemon:</label>
+            <select class="input-block" th:field="${pokemon.ability0}" required>
+                <option value="">Escolha uma abilidade</option>
+                <option th:each="abilidade : ${abilidades}"
+                            th:value="${abilidade.name}"
+                            th:text="${abilidade.name}">
+                </option></div>
+        </select>
+        <div class="input-block">
+            <label>Abilidade 2 do Pokemon:</label>
+            <select class="input-block" th:field="${pokemon.ability1}">
+                <option value="">Segunda Abilidade Opcinal</option>
+                <option th:each="abilidade : ${abilidades}"
+                            th:value="${abilidade.name}"
+                            th:text="${abilidade.name}">
+                </option>
+            </select></div>
+        <div class="input-block">
+            <label>Abilidade 3 do Pokemon:</label>
+            <select class="input-block" th:field="${pokemon.hidden}">
+                <option value="">Terceira Abilidade Opcinal</option>
+                <option th:each="abilidade : ${abilidades}"
+                            th:value="${abilidade.name}"
+                            th:text="${abilidade.name}">
+                </option>
+            </select></div>
+        <button type="submit" class="primary-button">Salvar</button>
+        <button type="reset" class="primary-button">Limpar</button>
+    </form>
+</body>
+</html>
